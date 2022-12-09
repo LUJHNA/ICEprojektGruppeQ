@@ -1,0 +1,25 @@
+Funktionelle krav til vores TravelCard.
+
+Brugeren skal kunne:
+
+-Oprette en bruger.
+
+-Login.
+
+-Bestille et travelcard med et vilkårligt beløb tanket op på kortet.
+
+-Rejse på transportmetoder, bus og tog f.eks.
+
+-Rejsen skal kunne startes et vilkårligt sted på transportmidlets route og ende et vilkårligt sted efter brugerens
+ valg.
+
+-Checke ind og checke ud.
+
+-Udregne pris baseret på zone-systemet.
+
+-Der skal være en tilfældig chance for at blive stoppet på sin rejse af billetkontrol, kontrolafgift 750 kr.,
+ hvis man har valgt at rejse uden TravelCard.
+
+-Travel skal fejle ved tjek ind såfremt der er under 50 kr. på kortet.
+
+-Der skal være mulighed for at ligge flere penge på TravelCard.
