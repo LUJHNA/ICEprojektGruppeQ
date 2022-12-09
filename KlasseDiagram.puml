@@ -1,0 +1,22 @@
+@startuml
+class TravelStart
+class User
+class TravelCard
+abstract class ATransport
+class TicketControl
+
+TravelStart *-- User
+User *-- TravelCard
+TravelCard *-- ATransport
+
+ATransport <|-- Bus
+ATransport <|-- Train
+
+Bus *-- TicketControl
+Train *-- TicketControl
+
+TravelCard *--FileIO
+
+
+
+@enduml
