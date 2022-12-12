@@ -17,6 +17,23 @@ Train *-- TicketControl
 
 TravelCard *--FileIO
 
+TravelStart : Main
 
+ATransport : +station
+ATransport : +zone
+
+ User : name
+ User : password
+ User : TravelCard travelcard
+ User : boolean checkInState
+
+TravelCard : -balance
+TravelCard : +addToBalance(double money)
+TravelCard : +subtractFromBalance(double cost)
+TravelCard : +getBalance()
+TravelCard : +setBalance(double balance)
+
+FileIO : +loginAndRegister2()
+FileIO : +List<String> makeRoute(...)
 
 @enduml
