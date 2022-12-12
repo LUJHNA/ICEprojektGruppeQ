@@ -111,11 +111,11 @@ public class FileIO {
                 routeHelper = scanner.nextLine().trim().split(",");
                 route.add(routeHelper[0]);
 
-                for (int i = 0; i <= route.size(); i++) {
-                    for (int j = 0; j <= route.size(); j++) {
+                for (int i = 0; i < route.size(); i++) {
+                    for (int j = 0; j < route.size(); j++) {
                         if (startDestination.equalsIgnoreCase(route.get(i)) && endDestination.equalsIgnoreCase(route.get(j))) {
 
-                            finalRoute = route.subList(i, j);
+                            finalRoute = route.subList(i, j + 1);
 
                         }
 
