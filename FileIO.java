@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    public static boolean loginAndRegister() {
+    public void loginAndRegister2() {
         System.out.println("Enter corresponding number for:\n1) Login\n2) Register\n3) Travel");
         Scanner scanner = new Scanner(System.in);
         File file = new File("UserNames");
@@ -31,7 +31,7 @@ public class FileIO {
                 filewriter.write(",");
                 filewriter.write(password);
                 filewriter.close();
-                loginAndRegister();
+                loginAndRegister2();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -59,7 +59,13 @@ public class FileIO {
                     for (int i = 0; i < m.length- 1 ; i++) {
 
                         if (m[i].equals(username) && m[i + 1].equals(password)) {
-                            return true;
+                            System.out.println("login successful");
+
+                        } else {
+
+
+
+
                         }
 
                     }
@@ -74,30 +80,12 @@ public class FileIO {
 
         }
 
-      return false;
-
-    }
-
-
-    public void loginAndRegisterIdiot() {
-
-        boolean y = loginAndRegister();
-        if (y == false ) {
-            System.out.println("login failed");
-
-        }
-
-         else if (y == true) {
-            System.out.println("login succesful");
-
-
-            }
-
-
-
 
 
     }
+
+
+
 
     public List<String> makeRoute(String startDestination, String endDestination) {
         File file = new File("40E");
