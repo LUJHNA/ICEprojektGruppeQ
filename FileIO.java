@@ -123,7 +123,7 @@ public class FileIO {
    public List<String> getZones40E(String startDestination, String endDestination) {
        File file = new File("40E");
        ArrayList<String> route = new ArrayList<>();
-       List<String> finalZones = new ArrayList<>();
+       List<String> finalZones;
        String [] routeHelper;
        ArrayList<String> zones = new ArrayList<>();
        List<String> finalZones2 = new ArrayList<>();
