@@ -53,4 +53,11 @@ public class TransportDB {
   return -1;
 
 }
+
+public void updateBalance(User currentUser) {
+        establishConnection();
+
+
+ }
+
 }

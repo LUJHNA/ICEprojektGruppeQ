@@ -1,12 +1,14 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Scanner;
 
 public class TravelStart {
 
     public static void main(String[] args) {
-       
+
         User currentUser = new User();
         loginAndRegister(currentUser);
 
@@ -42,9 +44,13 @@ public class TravelStart {
                     double balance = tDB.findBalanceinDB(userName2, password2);
 
                     currentUser = new User(userName2, password2, new TravelCard(balance), false);
-                    System.out.println("your current Balance is " + currentUser.travelcard.getBalance() + " kr.");
+                    System.out.println("Your current balance is " + currentUser.travelcard.getBalance() + " kr.");
+                    travel(currentUser);
 
-
+                   /* Conductor conductor = new Conductor();
+                    double y = conductor.conductorChance(currentUser);
+                    currentUser.travelcard.setBalance(y);
+                    System.out.println(currentUser); */
 
 
                 } else if (!resultSet.next()) {
@@ -94,6 +100,54 @@ public class TravelStart {
 
     }
 
+    public static void travel(User currentUser) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1) Travel\n2) Change your balance");
+        String choice = scanner.nextLine();
+
+        if (choice.equals("1")) {
+            System.out.println("Choose 1) bus or 2) train");
+            String transport = scanner.nextLine();
+
+            if (transport.equals("1")) {
+                System.out.println("You have bus, Line 40E is supported by this card");
+                System.out.println("Choose a start destination");
+                String startDestination = scanner.nextLine();
+                System.out.println("Choose an end destination");
+                String endDestination = scanner.nextLine();
+
+                FileIO fileio = new FileIO();
+                List y = fileio.makeRoute40E(startDestination, endDestination);
+                System.out.println("Your route is: " + y);
+                CheckIn checkin = new CheckIn();
+                checkin.checkIn(currentUser);
+                List x = fileio.getZones40E(startDestination, endDestination);
+                
+
+            }
+
+            if (transport.equals("2")) {
+
+
+
+
+            }
+
+
+        } else if (choice.equals("2")) {
+            System.out.println("Enter how much you want to add");
+            double m = scanner.nextDouble();
+            currentUser.travelcard.addToBalance(m);
+            System.out.println("You added " + m + " kr. ");
+            travel(currentUser);
+        }
+
+        else {
+            System.out.println("not valid input");
+            travel(currentUser);
+        }
+
+    }
 }
 
 
