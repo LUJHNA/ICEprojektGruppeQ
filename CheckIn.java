@@ -1,8 +1,9 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class CheckIn {
 
-    public void checkIn(User currentUser) {
+    public void checkIn(User currentUser, String startDestination, String endDestination) {
         System.out.println("Do you wish to Check in?" + "\n" +
                 "1) Yes" + "\n" +
                 "2) No");
@@ -20,7 +21,15 @@ public class CheckIn {
                 currentUser.checkInState = true;
                 Conductor conductor = new Conductor();
                 conductor.conductorChance(currentUser);
-
+                FileIO fileio = new FileIO();
+                CheckIn checkin = new CheckIn();
+                List x = fileio.getZones40E(startDestination, endDestination);
+                double x2 = x.size();
+                double x3 = checkin.getTravelCost(x2);
+                currentUser.travelcard.subtractFromBalance(x3);
+                System.out.println("Subtracted from balance: " +  x3 + " kr.");
+                System.out.println("New balance is: " + currentUser.travelcard.getBalance() + " kr.");
+                System.out.println("You arrived at " + endDestination);
 
             }
         }
@@ -37,5 +46,15 @@ public class CheckIn {
 
         }
     }
+
+    public double getTravelCost(double k) {
+
+        return 16 +( k - 1) * 6;
+
+
+
+
+    }
+
 
 }

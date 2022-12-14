@@ -47,10 +47,7 @@ public class TravelStart {
                     System.out.println("Your current balance is " + currentUser.travelcard.getBalance() + " kr.");
                     travel(currentUser);
 
-                   /* Conductor conductor = new Conductor();
-                    double y = conductor.conductorChance(currentUser);
-                    currentUser.travelcard.setBalance(y);
-                    System.out.println(currentUser); */
+                   
 
 
                 } else if (!resultSet.next()) {
@@ -120,9 +117,8 @@ public class TravelStart {
                 List y = fileio.makeRoute40E(startDestination, endDestination);
                 System.out.println("Your route is: " + y);
                 CheckIn checkin = new CheckIn();
-                checkin.checkIn(currentUser);
-                List x = fileio.getZones40E(startDestination, endDestination);
-                
+                checkin.checkIn(currentUser, startDestination, endDestination);
+
 
             }
 
