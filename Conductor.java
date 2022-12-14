@@ -7,7 +7,7 @@ public class Conductor {
 
     public double conductorChance(User us){
         Random chance = new Random();
-        int conductorChance = chance.nextInt(5); //1/6 chance for Conductor to enter.
+        int conductorChance = chance.nextInt(1); //1/6 chance for Conductor to enter.
 
         if(!us.checkInState && conductorChance == 0){
             System.out.println("You've been caught crime riding!(Traveling without TravelCard)");
