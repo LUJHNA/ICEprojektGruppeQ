@@ -18,24 +18,24 @@ CheckIn *--FileIO
 TravelStart*--CheckIn
 TravelStart *--FileIO
 
-TransportDB : establishConnection()
-TransportDB : findBalanceInDB()
-TransportDB : updateBalance()
+TransportDB : +establishConnection()
+TransportDB : +findBalanceInDB()
+TransportDB : +updateBalance()
 
-TravelStart : Main
-TravelStart : loginAndRegister(User currentUser)
-TravelStart : travel(User (User currentUser)
+TravelStart : +Main
+TravelStart : +loginAndRegister(User currentUser)
+TravelStart : +travel(User (User currentUser)
 
 CheckIn : +checkIn()
 CheckIn : +getTravelCost()
 
- User : name
- User : password
- User : TravelCard travelcard
- User : boolean checkInState
- User : String transportChoice
- User : getter & setter()
- User : String toString()
+ User : -name
+ User : -password
+ User : +TravelCard travelcard
+ User : +boolean checkInState
+ User : +String transportChoice
+ User : +getter & setter()
+ User : +String toString()
 
 TravelCard : -balance
 TravelCard : +addToBalance(double money)

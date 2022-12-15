@@ -15,7 +15,6 @@ public class CheckIn {
             TravelStart.travel(currentUser);
             }
 
-
              else if (currentUser.travelcard.getBalance() > 50) {
                 System.out.println("you've been checked in");
                 currentUser.checkInState = true;
@@ -60,9 +59,6 @@ public class CheckIn {
             System.out.println("New balance:" + currentUser.travelcard.getBalance() + " kr.");
             TransportDB tdb = new TransportDB();
             tdb.updateBalance(currentUser);
-
-
-
         }
     }
 
@@ -70,10 +66,5 @@ public class CheckIn {
 
         return 16 +( k - 1) * 6;
 
-
-
-
     }
-
-
 }

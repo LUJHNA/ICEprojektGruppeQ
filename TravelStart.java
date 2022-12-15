@@ -47,19 +47,13 @@ public class TravelStart {
                     System.out.println("Your current balance is " + currentUser.travelcard.getBalance() + " kr.");
                     travel(currentUser);
 
-
-
-
                 } else if (!resultSet.next()) {
                     System.out.println("login not successful, restart the program");
 
-
                 }
-
 
             } catch (SQLException e) {
                 e.printStackTrace();
-
 
             }
 
@@ -137,30 +131,23 @@ public class TravelStart {
                 CheckIn checkin = new CheckIn();
                 checkin.checkIn(currentUser, startDestination, endDestination);
 
-
             }
-
 
         } else if (choice.equals("2")) {
             System.out.println("Enter how much you want to add");
             double m = scanner.nextDouble();
             currentUser.travelcard.addToBalance(m);
             System.out.println("You added " + m + " kr. ");
+            System.out.println("Your current balance is now: " + currentUser.travelcard.getBalance() + " kr.");
+            TransportDB db = new TransportDB();
+            db.updateBalance(currentUser);
             travel(currentUser);
+
         }
 
         else {
             System.out.println("not valid input");
             travel(currentUser);
         }
-
     }
 }
-
-
-
-
-
-
-
-

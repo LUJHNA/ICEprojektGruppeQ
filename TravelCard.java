@@ -8,14 +8,11 @@ public class TravelCard {
 
     public void addToBalance(double money) {
         setBalance(balance + money);
-
     }
 
     public void subtractFromBalance(double cost) {
         setBalance(balance - cost);
-
     }
-
 
     public double getBalance() {
         return balance;

@@ -24,15 +24,9 @@ public class FileIO {
                         if (startDestination.equalsIgnoreCase(route.get(i)) && endDestination.equalsIgnoreCase(route.get(j))) {
 
                             finalRoute = route.subList(i, j + 1);
-
                         }
-
-
                     }
-
                 }
-
-
             }
 
         } catch (FileNotFoundException e) {
@@ -64,19 +58,9 @@ public class FileIO {
                            finalZones = zones.subList(i, j + 1);
                            finalZones2 = finalZones.stream().distinct().collect(Collectors.toList());
 
-
-
-
-
-
                        }
-
-
                    }
-
                }
-
-
            }
 
        } catch (FileNotFoundException e) {
@@ -105,13 +89,8 @@ public class FileIO {
                             finalRoute = route.subList(i, j + 1);
 
                         }
-
-
                     }
-
                 }
-
-
             }
 
         } catch (FileNotFoundException e) {
@@ -144,19 +123,9 @@ public class FileIO {
                             finalZones = zones.subList(i, j + 1);
                             finalZones2 = finalZones.stream().distinct().collect(Collectors.toList());
 
-
-
-
-
-
                         }
-
-
                     }
-
                 }
-
-
             }
 
         } catch (FileNotFoundException e) {

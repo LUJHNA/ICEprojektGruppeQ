@@ -19,7 +19,6 @@ public class TransportDB {
         } catch (SQLException e) {
             e.printStackTrace();
 
-
         }
     }
 
@@ -38,10 +37,6 @@ public class TransportDB {
        if (resultSet.next())
            return balance = resultSet.getDouble("balance");
 
-
-
-
-
     } catch(
     SQLException e)
 
@@ -49,9 +44,7 @@ public class TransportDB {
         e.printStackTrace();
     }
 
-
   return -1;
-
 }
 
 public void updateBalance(User currentUser) {
@@ -68,9 +61,5 @@ public void updateBalance(User currentUser) {
            e.printStackTrace();
 
        }
-
- }
-
-
-
-}
+    }
+  }
