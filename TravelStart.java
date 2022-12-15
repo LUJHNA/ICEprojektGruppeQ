@@ -41,7 +41,7 @@ public class TravelStart {
 
                 if (resultSet.next()) {
                     System.out.println("Login successful");
-                    double balance = tDB.findBalanceinDB(userName2, password2);
+                    double balance = tDB.findBalanceInDB(userName2, password2);
 
                     currentUser = new User(userName2, password2, new TravelCard(balance), false, "not chosen");
                     System.out.println("Your current balance is " + currentUser.travelcard.getBalance() + " kr.");

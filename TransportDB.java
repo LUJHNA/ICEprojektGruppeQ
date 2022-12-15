@@ -8,7 +8,7 @@ public class TransportDB {
 
     String url = "jdbc:mysql://localhost/transport?" + "autoReconnect=true&useSSL=false";
     String userName = "root";
-    String password = "1234morten";
+    String password = "TEST123";
 
     public void establishConnection() {
 
@@ -23,7 +23,7 @@ public class TransportDB {
         }
     }
 
-   public double findBalanceinDB(String userName2, String password2) {
+   public double findBalanceInDB(String userName2, String password2) {
     establishConnection();
     double balance;
 

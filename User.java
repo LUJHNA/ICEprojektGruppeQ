@@ -1,10 +1,9 @@
 public class User {
-    String name;
-    String password;
-    TravelCard travelcard;
+    private String name;
+    private String password;
+    public TravelCard travelcard;
     boolean checkInState;
-
-    String transportChoice;
+    public String transportChoice;
 
     public User(String name, String password, TravelCard travelcard, boolean checkInState, String transportChoice) {
         this.name = name;

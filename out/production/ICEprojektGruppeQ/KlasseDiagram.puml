@@ -2,30 +2,40 @@
 class TravelStart
 class User
 class TravelCard
-abstract class ATransport
-class TicketControl
+class Conductor
+class CheckIn
+class TransportDB
+
+TravelStart *--TransportDB
+CheckIn *--TransportDB
 
 TravelStart *-- User
 User *-- TravelCard
-TravelCard *-- ATransport
 
-ATransport <|-- Bus
-ATransport <|-- Train
+CheckIn *--Conductor
 
-Bus *-- TicketControl
-Train *-- TicketControl
+CheckIn *--FileIO
+TravelStart*--CheckIn
+TravelStart *--FileIO
 
-TravelCard *--FileIO
+TransportDB : establishConnection()
+TransportDB : findBalanceInDB()
+TransportDB : updateBalance()
 
 TravelStart : Main
+TravelStart : loginAndRegister(User currentUser)
+TravelStart : travel(User (User currentUser)
 
-ATransport : +station
-ATransport : +zone
+CheckIn : +checkIn()
+CheckIn : +getTravelCost()
 
  User : name
  User : password
  User : TravelCard travelcard
  User : boolean checkInState
+ User : String transportChoice
+ User : getter & setter()
+ User : String toString()
 
 TravelCard : -balance
 TravelCard : +addToBalance(double money)
@@ -33,7 +43,11 @@ TravelCard : +subtractFromBalance(double cost)
 TravelCard : +getBalance()
 TravelCard : +setBalance(double balance)
 
-FileIO : +loginAndRegister2()
-FileIO : +List<String> makeRoute(...)
+Conductor : +conductorChance()
+
+FileIO : +makeRoute40E(startDestination, endDestination)
+FileIO : +getZones40E(startDestination, endDestination)
+FileIO : +makeRouteLinjeB(startDestination, endDestination)
+FileIO : +getZonesLinjeB(startDestination, endDestination)
 
 @enduml
