@@ -23,24 +23,43 @@ public class CheckIn {
                 conductor.conductorChance(currentUser);
                 FileIO fileio = new FileIO();
                 CheckIn checkin = new CheckIn();
-                List x = fileio.getZones40E(startDestination, endDestination);
-                double x2 = x.size();
-                double x3 = checkin.getTravelCost(x2);
-                currentUser.travelcard.subtractFromBalance(x3);
-                System.out.println("Subtracted from balance: " +  x3 + " kr.");
-                System.out.println("New balance is: " + currentUser.travelcard.getBalance() + " kr.");
-                System.out.println("You arrived at " + endDestination);
 
+                if (currentUser.transportChoice.equalsIgnoreCase("Bus")) {
+
+                    List x = fileio.getZones40E(startDestination, endDestination);
+                    double x2 = x.size();
+                    double x3 = checkin.getTravelCost(x2);
+                    currentUser.travelcard.subtractFromBalance(x3);
+                    System.out.println("Subtracted from balance: " + x3 + " kr.");
+                    System.out.println("New balance is: " + currentUser.travelcard.getBalance() + " kr.");
+                    System.out.println("You arrived at " + endDestination);
+                    TransportDB tdb = new TransportDB();
+                    tdb.updateBalance(currentUser);
+
+                }
+
+                else if  (currentUser.transportChoice.equalsIgnoreCase("Train")) {
+                    List x = fileio.getZonesLinjeB(startDestination, endDestination);
+                    double x2 = x.size();
+                    double x3 = checkin.getTravelCost(x2);
+                    currentUser.travelcard.subtractFromBalance(x3);
+                    System.out.println("Subtracted from balance: " + x3 + " kr.");
+                    System.out.println("New balance is: " + currentUser.travelcard.getBalance() + " kr.");
+                    System.out.println("You arrived at " + endDestination);
+                    TransportDB tdb = new TransportDB();
+                    tdb.updateBalance(currentUser);
+                }
             }
         }
         if (w.equals("2")) {
-            System.out.println("You have chosen to become a crime rider by not checking in. You've been thrown out the vehicle");
+            System.out.println("You have chosen to become a crime rider by not checking in.");
             Conductor conductor = new Conductor();
             double y = conductor.conductorChance(currentUser);
             currentUser.travelcard.setBalance(y);
             double x = currentUser.travelcard.getBalance();
             System.out.println("New balance:" + currentUser.travelcard.getBalance() + " kr.");
-
+            TransportDB tdb = new TransportDB();
+            tdb.updateBalance(currentUser);
 
 
 

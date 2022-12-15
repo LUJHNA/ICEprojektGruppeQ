@@ -56,8 +56,21 @@ public class TransportDB {
 
 public void updateBalance(User currentUser) {
         establishConnection();
+        String query = "UPDATE Usernames SET balance = ? WHERE username = ? AND password = ?";
 
+       try {
+           PreparedStatement query2 = connection.prepareStatement(query);
+           query2.setDouble(1, currentUser.getTravelcard().getBalance());
+           query2.setString(2, currentUser.getName());
+           query2.setString(3, currentUser.getPassword());
+           query2.execute();
+       } catch (SQLException e) {
+           e.printStackTrace();
+
+       }
 
  }
+
+
 
 }

@@ -43,11 +43,11 @@ public class TravelStart {
                     System.out.println("Login successful");
                     double balance = tDB.findBalanceinDB(userName2, password2);
 
-                    currentUser = new User(userName2, password2, new TravelCard(balance), false);
+                    currentUser = new User(userName2, password2, new TravelCard(balance), false, "not chosen");
                     System.out.println("Your current balance is " + currentUser.travelcard.getBalance() + " kr.");
                     travel(currentUser);
 
-                   
+
 
 
                 } else if (!resultSet.next()) {
@@ -107,7 +107,8 @@ public class TravelStart {
             String transport = scanner.nextLine();
 
             if (transport.equals("1")) {
-                System.out.println("You have bus, Line 40E is supported by this card");
+                System.out.println("You have chosen bus, Line 40E is supported by this card");
+                currentUser.setTransportChoice("Bus");
                 System.out.println("Choose a start destination");
                 String startDestination = scanner.nextLine();
                 System.out.println("Choose an end destination");
@@ -123,8 +124,18 @@ public class TravelStart {
             }
 
             if (transport.equals("2")) {
+                System.out.println("You have chosen train, Line B is available");
+                currentUser.setTransportChoice("Train");
+                System.out.println("Choose a start destination");
+                String startDestination = scanner.nextLine();
+                System.out.println("Choose an end destination");
+                String endDestination = scanner.nextLine();
 
-
+                FileIO fileio = new FileIO();
+                List y = fileio.makeRouteLinjeB(startDestination, endDestination);
+                System.out.println("Your route is: " + y);
+                CheckIn checkin = new CheckIn();
+                checkin.checkIn(currentUser, startDestination, endDestination);
 
 
             }
